@@ -31,7 +31,7 @@ async function register() {
     setCookie(submission);
 
     //Redirecting to other page
-    window.location.assign(formAPI(formID, json));
+    window.location.assign(formAPI(formID, submission));
 }
 
 async function login() {
@@ -49,7 +49,7 @@ async function login() {
     setCookie(json);
 
     //Redirecting to other page
-    window.location.assign(formAPI(formID, json));
+    window.location.assign(formAPI(formID, submission));
 }
 
 //Hashing Function
