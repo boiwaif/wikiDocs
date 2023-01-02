@@ -6,7 +6,7 @@ function formAPI(id, args) {
     domain = "https://docs.google.com/forms/" + id;
     let parameters = "/formResponse?";
     for (let key in args) {
-        parameters += + "&entry.";
+        parameters += "&entry.";
         parameters += key + "=" + args[key];
     }
     return domain + parameters;
