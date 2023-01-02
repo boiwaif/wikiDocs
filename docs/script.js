@@ -1,5 +1,7 @@
 //Generate request for API call to form 
 function formAPI(id, args) {
+	args = JSON.parse(args);
+	
     //Construct request for form endpoint
     domain = "https://docs.google.com/forms/" + id;
     let parameters = "/formResponse?";
@@ -28,6 +30,11 @@ async function register() {
         "452285687": username,
         "178915727": passhash
     };
+	
+	//Check user:password for validity 
+	//TODO
+	
+	submission = JSON.stringify(submission)
     setCookie(submission);
 
     //Redirecting to other page
@@ -38,16 +45,18 @@ async function login() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     let passhash = await sha256(password);
-
+	
+	//Check password for validity
+	//TODO
+	
     var formID = "d/1tjLlJC5ucGU-9c_fjYYLSw4OQxIa-cafjsLhBxCfNlk/"
-    let json = {
+    let submission = {
         "78609054": username,
         "1559692011": passhash
     };
-    //Check password for validity for username
-
-    setCookie(json);
-
+	submission = JSON.stringify(submission)
+	setCookie(submission);
+    
     //Redirecting to other page
     window.location.assign(formAPI(formID, submission));
 }
