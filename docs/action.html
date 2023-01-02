@@ -1,35 +1,20 @@
-
-
 <head>
   <title>User Registration</title>
-  <script src="script.js"></script>
+  <script src="https://liquidwhiskers.github.io/wikiDocs/script.js"></script>
   <link rel="stylesheet" href="https://discordcss.blobby.me/discord.css">
-  <link rel="stylesheet" href="wiki.css">
+  <link rel="stylesheet" href="https://liquidwhiskers.github.io/wikiDocs/wiki.css">
 </head>
 <html>
-  
-<body>
-	<a href="/" target="_parent">open</a>
-    <script type="text/javascript">
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-getCookie(auth);
-
-        window.open("https://raw.githubusercontent.com/LiquidWhiskers/wikiDocs/main/test.html", '_blank');
-    </script>
-</body>
-  
+  <body>
+    <a href="/" target="_parent">open</a>
+    <script type="text/javascript">
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+      console.log(getCookie("auth"));
+     // window.open("https://raw.githubusercontent.com/LiquidWhiskers/wikiDocs/main/test.html", '_blank');
+    </script>
+  </body>
 </html>
