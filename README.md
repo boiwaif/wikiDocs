@@ -9,6 +9,14 @@ Uses the Google Drive API to make a wikia-type website
 4. Data Storage - Google Sheets 
 5. Resource Hosting - Google Drive
 
+## API Specification Pipeline
+
+Form Specification -> API Request
+
+API Request -> Dynamic Form
+
+Dynamic Form -> Request Generation
+
 ## Sources and Resources:
 
 - [RESTful Forms](https://theconfuzedsourcecode.wordpress.com/2019/11/11/you-may-restfully-submit-to-your-google-forms)
