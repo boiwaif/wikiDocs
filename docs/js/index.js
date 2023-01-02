@@ -1,30 +1,27 @@
 // Generates endpoint for login
 function formAPI(formID, args) {
     //Construct request for form endpoint
-    domain = "docs.google.com/forms/" + formID
+    domain = "https://docs.google.com/forms/" + formID
     let parameters = "/formResponse?";
     for (let key in args) {
         parameters = parameters + "&entry." + key + "=" + args[key];
     }
-
     return domain + parameters;
 }
-
 // Below function Executes on click of login button.
 async function login() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
+    let passhash = await sha256(password);
 
     var formID = "d/e/1FAIpQLSfRVy_Kmn1dv4PTbi0R09QJ94LsiKwOqeQ6fwoDm1eAgX44_w"
     let json = {
         "452285687": username,
-        "178915727": sha256(password)
+        "178915727": passhash
     };
-
     //Redirecting to other page
-    window.location.assign(API(endpoint, json));
+    window.location.assign(formAPI(formID, json));
 }
-
 //Hash Function
 async function sha256(source) {
     const sourceBytes = new TextEncoder().encode(source);

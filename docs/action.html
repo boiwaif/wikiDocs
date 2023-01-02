@@ -1,6 +1,27 @@
 <a href="/" target="_parent">open</a>
 
-<script>
-window.open("", '_self');
-window.close()
-</script>
+<!DOCTYPE html>
+<html>
+  
+<body>
+    <script type="text/javascript">
+        window.open("https://raw.githubusercontent.com/LiquidWhiskers/wikiDocs/main/test.html", '_blank');
+        function closeWindow() {
+  
+            // Open the new window 
+            // with the URL replacing the
+            // current page using the
+            // _self value
+            let new_window =
+                open(location, '_self');
+  
+            // Close this window
+            new_window.close();
+  
+            return false;
+        }
+        closeWindow();
+    </script>
+</body>
+  
+</html>

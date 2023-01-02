@@ -1,22 +1,86 @@
 <head>
-    <title>Wiki User Registration</title>
-    <script src="js/index.js"></script>
-    <link rel="stylesheet" href="https://discordcss.blobby.me/discord.css">
+  <title>User Login</title>
+  <script>
+    // Generates endpoint for login
+    function formAPI(formID, args) {
+      //Construct request for form endpoint
+      domain = "https://docs.google.com/forms/" + formID
+      let parameters = "/formResponse?";
+      for (let key in args) {
+        parameters = parameters + "&entry." + key + "=" + args[key];
+      }
+      return domain + parameters;
+    }
+    // Below function Executes on click of login button.
+    async function login() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      let passhash = await sha256(password);
+      
+      var formID = "d/1tjLlJC5ucGU-9c_fjYYLSw4OQxIa-cafjsLhBxCfNlk/"
+      let json = {
+        "78609054": username,
+        "1559692011": passhash
+      };
+      
+      let loginInfo = "auth=" + JSON.stringify(json)+ "; path=/site/auth";
+      document.cookie = loginInfo; 
+      
+      //Redirecting to other page
+      window.location.assign(formAPI(formID, json));
+    }
+    //Hash Function
+    async function sha256(source) {
+      const sourceBytes = new TextEncoder().encode(source);
+      const digest = await crypto.subtle.digest("SHA-256", sourceBytes);
+      const resultBytes = [...new Uint8Array(digest)];
+      return resultBytes.map(x => x.toString(16).padStart(2, '0')).join("");
+    }
+  </script>
+  <link rel="stylesheet" href="https://discordcss.blobby.me/discord.css">
+  <style>
+    center {
+      margin-top: 5em;
+    }
+
+    h1 {
+      margin-bottom: 1.5em;
+    }
+
+    .form {
+      height: 300%;
+    }
+
+    input {
+      height: 2.5em;
+      width: 80%;
+      font-size: 1.3em;
+      padding-left: 1.2em;
+      margin-bottom: 0.4rem;
+    }
+
+    #submit {
+      margin-top: 1.2em;
+      padding-left: 3em;
+      padding-right: 3em;
+      height: 4em;
+      font-size: 1.4em;
+      text-align: center;
+      width: fit-content;
+    }
+  </style>
 </head>
 <html>
-
-<body>
-    <div class="container">
-        <div class="main">
-            <form id="form_id" method="post" name="myform">
-                <h2>Wiki User Registration</h2>
-                <input id="username" placeholder="Enter Username" type="text">
-                <input id="password" placeholder="Enter Password" type="password">
-
-                <input type="button" value="Register" id="submit" onclick="register()">
-            </form>
-        </div>
-    </div>
-</body>
-
+  <body>
+    <center>
+      <div class="main">
+        <form id="form_id" method="post" name="myform">
+          <h1>Login</h1>
+          <input id="username" placeholder="Enter Username" type="text">
+          <input id="password" placeholder="Enter Password" type="password">
+          <input type="button" value="Login" id="submit" onclick="login();">
+        </form>
+      </div>
+    </center>
+  </body>
 </html>
