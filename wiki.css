@@ -1,0 +1,31 @@
+<style>
+    center {
+      margin-top: 5em;
+    }
+
+    h1 {
+      margin-bottom: 1.5em;
+    }
+
+    .form {
+      height: 300%;
+    }
+
+    input {
+      height: 2.5em;
+      width: 80%;
+      font-size: 1.3em;
+      padding-left: 1.2em;
+      margin-bottom: 0.4rem;
+    }
+
+    #submit {
+      margin-top: 1.2em;
+      padding-left: 3em;
+      padding-right: 3em;
+      height: 4em;
+      font-size: 1.4em;
+      text-align: center;
+      width: fit-content;
+    }
+  </style>
