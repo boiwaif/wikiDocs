@@ -1,5 +1,5 @@
 <head>
-  <title>User Action</title>
+  <title>User Registration</title>
   <link rel="stylesheet" href="https://discordcss.blobby.me/discord.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
   <link rel="stylesheet" href="https://boiwaif.github.io/wikiDocs/css/wiki.css">
@@ -10,6 +10,16 @@
 </head>
 <html>
   <body>
-    <a href="/" target="_parent">open</a>
+    <center>
+      <div class="main">
+        <form id="form_id" method="post" name="myform">
+          <h1>Add Page</h1>
+		  <input id="page" placeholder="Page Name" type="text" style="margin-bottom: 3rem;">
+          <input id="username" placeholder="Enter Username" type="text">
+          <input id="password" placeholder="Enter Password" type="password">
+          <input type="button" value="Register" id="submit" onclick="addPage();">
+        </form>
+      </div>
+    </center>
   </body>
 </html>
