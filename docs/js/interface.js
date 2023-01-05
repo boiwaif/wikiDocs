@@ -23,10 +23,21 @@ async function login() {
 
     if (await checkAuth(username, password) == true) {
         resetDisplay(document);
-        window.location.assign("confirmation.html");
+        window.location.assign("confirmation.html"); 
     } else {
         displayError(document);
     }
+}
+
+async function addPage() {
+    let page = document.getElementById("page").value;
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let passhash = await sha256(password);
+
+    let newPage = {"name":page, "user":username, "hash":passhash};
+
+    window.location.assign(postForm(PAGE_ADD, newPage));
 }
 
 

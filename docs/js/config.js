@@ -1,9 +1,10 @@
-const loginPoint = {
-    "name": "login",
-    "id": "d/1tjLlJC5ucGU-9c_fjYYLSw4OQxIa-cafjsLhBxCfNlk/",
+const PAGE_ADD = {
+    "name": "addPage",
+    "id": "d/e/1FAIpQLScLlna2Oe_jf4Si_4a06rob2oH0522yl7abJJGpwWxwBzjTDQ/",
     "parameters": {
-        "username": "78609054",
-        "hash": "1559692011"
+        "name": "78609054",
+        "user": "68307260",
+        "hash": "1834939578"
     },
 };
 
