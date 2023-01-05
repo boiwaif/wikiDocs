@@ -1,6 +1,4 @@
 # wikiDocs
-Uses the Google Drive API to make a wikia-type website
-
 ## Features:
 
 1. Authentication - Google Sites Embeds and RESTful forms
